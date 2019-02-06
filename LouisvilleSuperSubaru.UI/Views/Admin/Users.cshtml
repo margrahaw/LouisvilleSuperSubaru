@@ -1,0 +1,47 @@
+﻿@model IEnumerable<LouisvilleSuperSubaru.Models.Queries.UserListing>
+@{
+    ViewBag.Title = "Users";
+}
+
+
+    <div class="row">
+        <div class="col mb-5">
+            <h2>Users</h2>
+            @Html.ActionLink("Add a new User", "AddUser", "Admin")
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Role</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var user in Model)
+                    {
+                    <tr>
+                        <td scope="row">@user.LastName</td>
+                        <td>@user.FirstName</td>
+                        <td>@user.Email</td>
+                        <td>@user.UserRoleName</td>
+                        <td>@Html.ActionLink("edit", "EditUser", "Admin")</td>
+                    </tr>
+                        
+                    }
+                    </tbody>
+                </table>
+        </div>
+    </div>
+    
+@*}
+else
+{
+    <h2>  Welcome! You are <strong>@ViewBag.Name</strong>. Please Login in to continue. </h2>
+}*@
+

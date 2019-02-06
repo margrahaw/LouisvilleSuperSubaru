@@ -1,0 +1,140 @@
+﻿@model IEnumerable<LouisvilleSuperSubaru.Models.Queries.SearchDisplay>
+@{
+    ViewBag.Title = "Inventory";
+}
+
+<div class="row mt-5">
+    <div class="col mb-2">
+        <h2>Admin</h2>
+        @Html.ActionLink("Add a new Vehicle", "AddVehicle", "Inventory")
+    </div>
+
+</div>
+@Html.Partial("_VehicleSearchBar")
+
+<div class="row">
+    <div class="col-12 mb-2">
+        <h2>Search Results</h2>
+    </div>
+    <div class="row" id="searchResults">
+        @foreach (var vehicle in Model)
+        {
+            <div class="col-12">
+                <p><strong>@vehicle.Year @vehicle.MakeName @vehicle.ModelName</strong></p>
+            </div>
+            <div class="col-12 col-md-4 col-lg-2">
+                <img src="@Url.Content("~/Images/" + vehicle.Picture)" alt="Alternate Text" width="150" />
+            </div>
+            <div class="col-12 col-md-8 col-lg-10">
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <table class="table table-sm">
+                            <tr>
+                                <td><strong>Body Style:</strong></td>
+                                <td>@vehicle.VehicleTypeName</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Transmission:</strong></td>
+                                <td>@vehicle.TransmissionTypeName</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Color:</strong></td>
+                                <td>@vehicle.CarColorName</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <table class="table table-sm">
+                            <tr>
+                                <td><strong>Interior:</strong></td>
+                                <td>@vehicle.InteriorColorName</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Mileage:</strong></td>
+                                <td>@vehicle.Mileage</td>
+                            </tr>
+                            <tr>
+                                <td><strong>VIN #:</strong></td>
+                                <td>@vehicle.VIN</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <table class="table table-sm">
+                            <tr>
+                                <td><strong>Sale Price:</strong></td>
+                                <td>@vehicle.SalesPrice.ToString("c")</td>
+                            </tr>
+                            <tr>
+                                <td><strong>MSRP:</strong></td>
+                                <td>@vehicle.MSRP.ToString("c")</td>
+                            </tr>
+                        </table>
+                        <div class="row justify-content-end">
+                            <div class="col-8">
+                                @Html.ActionLink("Edit", "EditVehicle", "Inventory", new { id = vehicle.VehicleID }, null)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#searchForm").submit(function (e) {
+
+                search();
+                return false;
+            });
+        });
+
+        function search() {
+            var params;
+            var imagePath = '@Url.Content("~/Images/")';
+            var detailsPath= '@Url.Action("Details", "Inventory")/';
+
+
+            params = 'minPrice=' + $('#minPrice').val() + '&maxPrice=' + $('#maxPrice').val() + '&minYear=' + $('#minYear').val() + '&maxYear=' +
+                $('#minYear').val();
+
+            $.ajax({
+                type: 'GET',
+                url: 'http://localhost:56672/inventory/new/search?' + params,
+                success: function (results) {
+                    $('#searchResults').empty();
+
+
+                    $.each(results, function (index, listing) {
+                        var html = '<div class="col-12"><p><strong>' + listing.Year + ' ' + listing.MakeName + ' ' + listing.ModelName + '</strong></p></div>' +
+                            '<div class="col-12 col-md-4 col-lg-2"> <img src="' + imagePath + listing.Picture + '" alt="Alternate Text" width="150" /></div>' +
+                            '<div class="col-12 col-md-8 col-lg-10"><div class="row"><div class="col-12 col-md-6 col-lg-4"><table class="table table-sm">' +
+                            '<tr><td><strong>Body Style:</strong></td><td>' + listing.VehicleTypeName + '</td></tr>' +
+                            '<tr><td><strong>Transmission:</strong></td><td>' + listing.TransmissionTypeName + '</td></tr>' +
+                            '<tr><td><strong>Color:</strong></td><td>' + listing.CarColorName + '</td></tr></table></div>' +
+                            '<div class="col-12 col-md-6 col-lg-4"><table class="table table-sm"><tr><td><strong>Interior:</strong></td><td>' + listing.InteriorColorName + '</td></tr>' +
+                            '<tr><td><strong>Mileage:</strong></td><td>' + listing.Mileage + '</td></tr>' +
+                            '<tr><td><strong>VIN #:</strong></td><td>' + listing.VIN + '</td></tr></table></div>' +
+                            '<div class="col-12 col-md-6 col-lg-4"><table class="table table-sm"><tr><td><strong>Sale Price:</strong></td><td>$' + listing.SalesPrice + '</td></tr>' +
+                            '<tr><td><strong>MSRP:</strong></td><td>$' + listing.MSRP + '</td></tr></table>' +
+                            '<div class="col-12 col-md-6 col-lg-4"><div class="row justify-content-end"><div class="col-8">' +
+                            '<a href="' + detailsPath + listing.VehicleID + '">Details</a></div></div></div></div></div>';
+
+                        console.log("Where did the search results go?");
+                        $('#searchResults').append(html.toString());
+                    });
+                },
+                error: function () {
+                    alert('Error performing search, try again later!')
+                }
+            });
+        }
+    </script>
+
+}
+

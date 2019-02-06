@@ -1,0 +1,64 @@
+﻿@model LouisvilleSuperSubaru.UI.Models.ModelAddViewModel
+@{
+    ViewBag.Title = "Models";
+}
+
+<div class="row mt-5">
+    <div class="col mb-2">
+        <h2>Models</h2>
+    </div>
+</div>
+
+
+    @using (Html.BeginForm("AddModel", "Sales", FormMethod.Post, new { enctrype = "multipart/form-data", @class="row" }))
+    {
+        <div class="col-md-6 my-1">
+            <div class="form-group row">
+                <label class="col-3 col-form-label">New Model</label>
+                <div class="col-9">
+                    @Html.TextBoxFor(m => m.Model.ModelName, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 my-1">
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Make</label>
+                <div class="col-10">
+                    @Html.DropDownListFor(m => m.Model.MakeID, Model.Make, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 my-1">
+            <div class="form-group row">
+                <button class="btn btn-primary w-100">Save</button>
+            </div>
+        </div>
+
+
+    }
+
+
+            <div class="row">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Make</th>
+                            <th>Model</th>
+                            <th>Date Added</th>
+                            <th>User</th>
+                        </tr>
+                    </thead>
+
+                    @foreach (var modeltype in Model.Models.ToList())
+                {
+                    <tr>
+                        <td>@modeltype.MakeName</td>
+                        <td>@modeltype.ModelName</td>
+                        <td>@modeltype.AddDate</td>
+                        <td>@modeltype.Email</td>
+                    </tr>
+                }
+
+                </table>
+            </div>
+

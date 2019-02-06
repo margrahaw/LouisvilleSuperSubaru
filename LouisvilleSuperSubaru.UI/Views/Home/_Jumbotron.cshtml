@@ -1,0 +1,16 @@
+﻿@model IEnumerable<LouisvilleSuperSubaru.Models.Queries.Specials>
+
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner" role="listbox">
+        @foreach (var special in Model)
+        {
+            <div class="carousel-item active">
+                <img class="d-block img-fluid" src="~/Images/jumbo-image.jpg" alt="slide">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>@special.SpecialTitle</h5>
+                    <p>@special.SpecialDescription</p>
+                </div>
+            </div>
+         }
+    </div>
+</div>

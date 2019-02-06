@@ -1,0 +1,16 @@
+C:\Users\margr\repos\bitbucket\CarDealership\LouisvilleSuperSubaru\LouisvilleSuperSubaru.Data\bin\Debug\LouisvilleSuperSubaru.Data.dll
+C:\Users\margr\repos\bitbucket\CarDealership\LouisvilleSuperSubaru\LouisvilleSuperSubaru.Data\bin\Debug\LouisvilleSuperSubaru.Data.pdb
+C:\Users\margr\repos\bitbucket\CarDealership\LouisvilleSuperSubaru\LouisvilleSuperSubaru.Data\bin\Debug\LouisvilleSuperSubaru.Models.dll
+C:\Users\margr\repos\bitbucket\CarDealership\LouisvilleSuperSubaru\LouisvilleSuperSubaru.Data\bin\Debug\LouisvilleSuperSubaru.Models.pdb
+C:\Users\margr\repos\bitbucket\CarDealership\LouisvilleSuperSubaru\LouisvilleSuperSubaru.Data\obj\Debug\LouisvilleSuperSubaru.Data.csprojResolveAssemblyReference.cache
+C:\Users\margr\repos\bitbucket\CarDealership\LouisvilleSuperSubaru\LouisvilleSuperSubaru.Data\obj\Debug\LouisvilleSuperSubaru.Data.csproj.CoreCompileInputs.cache
+C:\Users\margr\repos\bitbucket\CarDealership\LouisvilleSuperSubaru\LouisvilleSuperSubaru.Data\obj\Debug\LouisvilleSuperSubaru.Data.dll
+C:\Users\margr\repos\bitbucket\CarDealership\LouisvilleSuperSubaru\LouisvilleSuperSubaru.Data\obj\Debug\LouisvilleSuperSubaru.Data.pdb
+C:\Users\margr\repos\bitbucket\mary-hawley-individual-work\CarDealership\LouisvilleSuperSubaru\LouisvilleSuperSubaru.Data\bin\Debug\LouisvilleSuperSubaru.Data.dll
+C:\Users\margr\repos\bitbucket\mary-hawley-individual-work\CarDealership\LouisvilleSuperSubaru\LouisvilleSuperSubaru.Data\bin\Debug\LouisvilleSuperSubaru.Data.pdb
+C:\Users\margr\repos\bitbucket\mary-hawley-individual-work\CarDealership\LouisvilleSuperSubaru\LouisvilleSuperSubaru.Data\bin\Debug\LouisvilleSuperSubaru.Models.dll
+C:\Users\margr\repos\bitbucket\mary-hawley-individual-work\CarDealership\LouisvilleSuperSubaru\LouisvilleSuperSubaru.Data\bin\Debug\LouisvilleSuperSubaru.Models.pdb
+C:\Users\margr\repos\bitbucket\mary-hawley-individual-work\CarDealership\LouisvilleSuperSubaru\LouisvilleSuperSubaru.Data\obj\Debug\LouisvilleSuperSubaru.Data.csprojResolveAssemblyReference.cache
+C:\Users\margr\repos\bitbucket\mary-hawley-individual-work\CarDealership\LouisvilleSuperSubaru\LouisvilleSuperSubaru.Data\obj\Debug\LouisvilleSuperSubaru.Data.csproj.CoreCompileInputs.cache
+C:\Users\margr\repos\bitbucket\mary-hawley-individual-work\CarDealership\LouisvilleSuperSubaru\LouisvilleSuperSubaru.Data\obj\Debug\LouisvilleSuperSubaru.Data.dll
+C:\Users\margr\repos\bitbucket\mary-hawley-individual-work\CarDealership\LouisvilleSuperSubaru\LouisvilleSuperSubaru.Data\obj\Debug\LouisvilleSuperSubaru.Data.pdb

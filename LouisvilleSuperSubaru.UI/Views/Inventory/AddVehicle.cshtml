@@ -1,0 +1,166 @@
+﻿@model LouisvilleSuperSubaru.UI.Models.VehicleAddViewModel
+@{
+    ViewBag.Title = "AddVehicle";
+}
+
+<div class="row mt-5">
+    <div class="col mb-2">
+        <h2>Add Vehicle</h2>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col">
+
+        @using (Html.BeginForm("Add", "Inventory", FormMethod.Post, new { enctype = "multipart/form-data", id = "frmEditVehicle", @class = "w-100" }))
+    {
+        @Html.ValidationSummary()
+        <div class="form-row">
+            <div class="col-12 col-md-4">
+                <div class="form-group">
+                    <label>Make</label>
+                    @Html.DropDownListFor(m => m.MakeId, Model.Makes, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="form-group">
+                    <label>Model</label>
+                    @Html.DropDownListFor(m => m.Vehicle.ModelID, Model.Models, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-12 col-md-4">
+                <div class="form-group">
+                    <label>Type</label>
+                    @Html.DropDownListFor(m => m.Vehicle.ConditionID, Model.ConditionName, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="form-group">
+                    <label>Body Style</label>
+                    @Html.DropDownListFor(m => m.Vehicle.VehicleTypeID, Model.VehicleType, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-12 col-md-4">
+                <div class="form-group">
+                    <label>Year</label>
+                    @Html.TextBoxFor(m => m.Vehicle.Year, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="form-group">
+                    <label>Transmission</label>
+                    @Html.DropDownListFor(m => m.Vehicle.TransmissionTypeID, Model.TransmissionType, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-12 col-md-4">
+                <div class="form-group">
+                    <label>Color</label>
+                    @Html.DropDownListFor(m => m.Vehicle.CarColor, Model.CarColorName, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="form-group">
+                    <label>Interior</label>
+                    @Html.DropDownListFor(m => m.Vehicle.Interior, Model.InteriorColorName, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-12 col-md-4">
+                <div class="form-group">
+                    <label>Mileage</label>
+                    @Html.TextBoxFor(m => m.Vehicle.Mileage, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="form-group">
+                    <label>VIN#</label>
+                    @Html.TextBoxFor(m => m.Vehicle.VIN, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-12 col-md-4">
+                <div class="form-group">
+                    <label>MSRP</label>
+                    @Html.TextBoxFor(m => m.Vehicle.MSRP, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="form-group">
+                    <label>Sale Price</label>
+                    @Html.TextBoxFor(m => m.Vehicle.SalesPrice, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-12 col-md-8">
+                <div class="form-group">
+                    <label>Description</label>
+                    @Html.TextAreaFor(m => m.Vehicle.Description, new { @class = "form-control " })
+                </div>
+                <div class="form-group">
+                    <label for="ImageUpload">Picture</label>
+                    <input id="ImageUpload" name="ImageUpload" type="file" class="form-control" />
+                </div>
+            </div>
+            <div class="col-12">
+                <button class="btn btn-primary">Save</button>
+            </div>
+        </div>
+
+
+
+}
+
+    </div>
+
+</div>
+
+<style>
+    textarea {
+        max-width: 100%;
+    }
+
+</style>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $('#frmEditVehicle').validate({
+                rules: {
+                    'Vehicle.Year': {
+                        required: true
+                    },
+                    'Vehicle.Milage': {
+                        required: true
+                    },
+                    'Vehicle.VIN': {
+                        required: true
+                    },
+                    'Vehicle.MSRP': {
+                        required: true
+                    },
+                    'Vehicle.SalesPrice': {
+                        required: true
+                    },
+                    'Vehicle.Description': {
+                        required: true
+                    },
+                    'ImageUpload': {
+                        required: true
+                    }
+                }
+            });
+        });
+            
+    </script>    
+}
+

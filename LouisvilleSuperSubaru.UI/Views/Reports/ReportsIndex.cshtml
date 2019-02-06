@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "ReportsIndex";
+}
+
+<div class="row mt-5">
+    <div class="col mb-2">
+        <h2>Reports</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <ul class="list-group">
+            @Html.ActionLink("Inventory Report", "Inventory", "Reports", null, new { @class = "list-item mb-2"})
+            @Html.ActionLink("Sales Report", "Sales", "Reports", null, new { @class = "list-item mb-2" })
+        </ul>
+    </div>
+</div>
+

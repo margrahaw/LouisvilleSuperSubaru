@@ -1,0 +1,53 @@
+﻿@model LouisvilleSuperSubaru.UI.Models.MakeAddViewModel
+
+
+@{
+    ViewBag.Title = "Makes";
+}
+
+<div class="row mt-5">
+    <div class="col mb-2">
+        <h2>Makes</h2>
+    </div>
+</div>
+
+
+
+    @using (Html.BeginForm("Makes", "Sales", FormMethod.Post, new { enctrype = "multipart/form-data", @class = "row" }))
+    {
+        <div class="col-md-5 my-1">
+            <div class="form-group row">
+                <label class="col-3 col-form-label">New Make</label>
+                @Html.TextBoxFor(m => m.Make.MakeName, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-4 my-1">
+            <div class="form-group row">
+                <button class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    }
+
+
+<div class="row">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Make</th>
+                <th>Date Added</th>
+                <th>User</th>
+            </tr>
+        </thead>
+    
+    @foreach (var make in Model.Makes.ToList())
+    {
+        <tr>
+            <td>@make.MakeName</td>
+            <td>@make.AddDate</td>
+            <td>@make.Email</td>
+        </tr>
+    }
+
+   </table>
+</div>
+

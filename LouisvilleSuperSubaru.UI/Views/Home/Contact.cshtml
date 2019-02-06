@@ -1,0 +1,49 @@
+﻿@model LouisvilleSuperSubaru.Models.Queries.ContactUs
+    @{
+        ViewBag.Title = "Contact";
+    }
+
+    <div class="row mt-5">
+        <div class="col">
+            <h2>Contact Us</h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col col-lg-6">
+            <form action="/" method="post">
+                <div class="form-group">
+                    <label for="contact-name">Name</label>
+                    <input type="text" name="contact-name" value="" id="contact-name" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="contact-email">Email</label>
+                    <input type="email" name="contact-email" value="" id="contact-email" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="contact-phone">Phone</label>
+                    <input type="tel" name="contact-phone" value="" id="contact-phone" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="contact-message">Message</label>
+                    <textarea class="form-control" id="contact-message" rows="4"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+        <div class="col col-lg-5">
+                <img src="https://maps.googleapis.com/maps/api/staticmap?center=38.253986,-85.748399&zoom=13&size=400x300&maptype=roadmap
+&markers=color:blue%7Clabel:S%7C38.253986,-85.748399
+&key=AIzaSyA0aHPjKWEUsSKhw1fXDSVP1kphUmepy2E" alt="Alternate Text" />
+                <address class="mt-3">
+                    Louisville Super Subaru<br />
+                    252 E Market St<br />
+                    Louisville, KY 40202<br />
+                    Sales: 502-333-4444<br />
+                    Service: 502-333-0000<br />
+                </address>
+        </div>
+    </div>
+
+    
+

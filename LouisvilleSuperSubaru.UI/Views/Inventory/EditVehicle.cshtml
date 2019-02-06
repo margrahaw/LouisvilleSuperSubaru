@@ -1,0 +1,172 @@
+﻿@model LouisvilleSuperSubaru.UI.Models.VehicleAddViewModel
+@{
+    ViewBag.Title = "EditVehicle";
+}
+
+<div class="row mt-5">
+    <div class="col mb-2">
+        <h2>Edit Vehicle</h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+
+        @using (Html.BeginForm("Edit", "Inventory", FormMethod.Post, new { enctype = "multipart/form-data", id = "frmAddVehicle", @class = "w-100" }))
+    {
+        @Html.ValidationSummary()
+        @Html.HiddenFor(m => m.Vehicle.VehicleID)
+        <div class="form-row">
+            <div class="col-12 col-md-4">
+                <div class="form-group">
+                    <label>Make</label>
+                    @Html.DropDownListFor(m => m.MakeId, Model.Makes, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="form-group">
+                    <label>Model</label>
+                    @Html.DropDownListFor(m => m.Vehicle.ModelID, Model.Models, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-12 col-md-4">
+                <div class="form-group">
+                    <label>Type</label>
+                    @Html.DropDownListFor(m => m.Vehicle.ConditionID, Model.ConditionName, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="form-group">
+                    <label>Body Style</label>
+                    @Html.DropDownListFor(m => m.Vehicle.VehicleTypeID, Model.VehicleType, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-12 col-md-4">
+                <div class="form-group">
+                    <label>Year</label>
+                    @Html.TextBoxFor(m => m.Vehicle.Year, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="form-group">
+                    <label>Transmission</label>
+                    @Html.DropDownListFor(m => m.Vehicle.TransmissionTypeID, Model.TransmissionType, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-12 col-md-4">
+                <div class="form-group">
+                    <label>Color</label>
+                    @Html.DropDownListFor(m => m.Vehicle.CarColor, Model.CarColorName, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="form-group">
+                    <label>Interior</label>
+                    @Html.DropDownListFor(m => m.Vehicle.Interior, Model.InteriorColorName, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-12 col-md-4">
+                <div class="form-group">
+                    <label>Mileage</label>
+                    @Html.TextBoxFor(m => m.Vehicle.Mileage, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="form-group">
+                    <label>VIN#</label>
+                    @Html.TextBoxFor(m => m.Vehicle.VIN, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-12 col-md-4">
+                <div class="form-group">
+                    <label>MSRP</label>
+                    @Html.TextBoxFor(m => m.Vehicle.MSRP, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="form-group">
+                    <label>Sale Price</label>
+                    @Html.TextBoxFor(m => m.Vehicle.SalesPrice, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-12 col-md-8">
+                <div class="form-group">
+                    <label>Description</label>
+                    @Html.TextAreaFor(m => m.Vehicle.Description, new { @class = "form-control " })
+                </div>
+                <img src="@Url.Content("~/Images/" + Model.Vehicle.Picture)" />
+                <div class="form-group">
+                    <label for="ImageUpload">Replace Picture</label>
+                    <input id="ImageUpload" name="ImageUpload" type="file" class="form-control" />
+                </div>
+            </div>
+            <div class="col-12">
+
+                @*@Html.ActionLink("Delete", "DeleteVehicle", "Inventory", new { id = Model.Vehicle.VehicleID}, null)*@
+                <button class="btn btn-primary">Save</button>
+            </div>
+        </div>
+
+
+
+        }
+
+        @using (Html.BeginForm("DeleteVehicle", "Inventory", FormMethod.Post))
+        {
+            @Html.Hidden("VehicleId", Model.Vehicle.VehicleID)
+            <button class="btn btn-danger" onclick="return confirm('Are you sure?');">Delete</button>
+        }
+    </div>
+
+</div>
+
+<style>
+    textarea {
+        max-width: 100%;
+    }
+</style>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $('#frmAddVehicle').validate({
+                rules: {
+                    'Vehicle.Year': {
+                        required: true
+                    },
+                    'Vehicle.Milage': {
+                        required: true
+                    },
+                    'Vehicle.VIN': {
+                        required: true
+                    },
+                    'Vehicle.MSRP': {
+                        required: true
+                    },
+                    'Vehicle.SalesPrice': {
+                        required: true
+                    },
+                    'Vehicle.Description': {
+                        required: true
+                    },
+                    'ImageUpload': {
+                        required: true
+                    }
+                }
+            });
+        });
+
+    </script>
+}

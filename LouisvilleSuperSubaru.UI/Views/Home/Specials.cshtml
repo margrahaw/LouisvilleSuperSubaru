@@ -1,0 +1,24 @@
+﻿@model IEnumerable<LouisvilleSuperSubaru.Models.Queries.Specials>
+@{
+    ViewBag.Title = "Specials";
+}
+
+<div class="row mt-5">
+    <div class="col mb-5">
+        <h2>Specials</h2>
+    </div>
+</div>
+<div class="row">
+    @foreach (var special in Model)
+    {
+        <div class="col-12">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">@special.SpecialTitle</h5>
+                    <p class="card-text">@special.SpecialDescription</p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+

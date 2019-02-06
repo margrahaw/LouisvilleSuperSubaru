@@ -1,0 +1,25 @@
+﻿@model IEnumerable<LouisvilleSuperSubaru.Models.Queries.VehicleShortItem>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="row">
+    <div class="col mb-5">
+        <h2>Featured Subaru Vehicles</h2>
+    </div>
+</div>
+<div class="row">
+    @foreach (var vehicle in Model)
+    {
+        <div class="col col-sm-6 col-md-4">
+            <div class="card mb-4 text-center">
+                    <img src="@Url.Content("~/Images/" + vehicle.Picture)" class="card-img-top" alt="@vehicle.ModelName" />
+                    <div class="card-body">
+                        <h4>@vehicle.Year @vehicle.MakeName @vehicle.ModelName</h4>
+                        <h4>@vehicle.SalesPrice.ToString("c")</h4>
+                        @Html.ActionLink("Details", "Details", "Inventory", new { id = vehicle.VehicleID }, null)
+                    </div>
+            </div>
+        </div>
+    }
+</div> 
